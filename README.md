@@ -1,2 +1,2 @@
 # HismicEngine2
-My game engine
+My private game engine
