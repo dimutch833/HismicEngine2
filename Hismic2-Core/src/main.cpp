@@ -1,10 +1,12 @@
 #include "utils/Logger.h"
 #include "BUILD.h"
 #include <graphics/window.h>
+#include <maths/vec2.h>
 
 int main(int argc,char *argv[]) {
 	using namespace hismic;
 	using namespace graphics;
+	using namespace maths;
 
 	Utils::Logger logger;
 	logger.PrintLog(FULL_VERSION_NAME, 1);
@@ -15,6 +17,8 @@ int main(int argc,char *argv[]) {
 	GLuint vao;
 	glGenVertexArrays(1,&vao);
 	glBindVertexArray(vao);
+
+	vec2 vector(1.0f,2.0f);
 
 	while (!window.closed()) {
 		
