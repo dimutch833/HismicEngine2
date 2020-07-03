@@ -142,6 +142,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="src\graphics\window.cpp" />
+    <ClCompile Include="src\maths\vec2.cpp" />
     <ClCompile Include="src\utils\Logger.cpp" />
     <ClCompile Include="src\main.cpp" />
   </ItemGroup>
