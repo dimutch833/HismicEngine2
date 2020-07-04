@@ -1,4 +1,5 @@
 #pragma once
+//Build info
 
 #define NAME "HismicEngine2"
 #define VERSION "0.2-r3"

@@ -1,4 +1,5 @@
 #include "vec2.h"
+//Simple math vec2
 
 namespace hismic {
 	namespace maths {
@@ -40,6 +41,38 @@ namespace hismic {
 		x /= other.x;
 		y /= other.y;
 		return *this;
+	}
+	vec2& vec2::operator+=(const vec2& other)
+	{
+		return add(other);
+	}
+	vec2& vec2::operator-=(const vec2& other)
+	{
+		return subtract(other);
+	}
+	vec2& vec2::operator*=(const vec2& other)
+	{
+		return multiply(other);
+	}
+	vec2& vec2::operator/=(const vec2& other)
+	{
+		return divide(other);
+	}
+	vec2& operator+(vec2& left, const vec2& right)
+	{
+		return left.add(right);
+	}
+	vec2& operator-(vec2& left, const vec2& right)
+	{
+		return left.subtract(right);
+	}
+	vec2& operator*(vec2& left, const vec2& right)
+	{
+		return left.multiply(right);
+	}
+	vec2& operator/(vec2& left, const vec2& right)
+	{
+		return left.divide(right);
 	}
 	std::ostream& operator<<(std::ostream& stream, const vec2& vector) {
 		stream << "vec2: (" << vector.x << ", " << vector.y << ")";

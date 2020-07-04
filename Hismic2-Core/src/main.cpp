@@ -20,9 +20,11 @@ int main(int argc,char *argv[]) {
 
 	vec2 vector(1.0f,2.0f);
 
+	vector = vector + vector;
 	while (!window.closed()) {
 		
 		window.clear();
+		
 		
 		std::cout << vector << std::endl;
 #if 1 	

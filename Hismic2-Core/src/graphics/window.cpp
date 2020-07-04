@@ -1,4 +1,6 @@
 #include "window.h"
+//Window
+
 namespace hismic {
 	namespace graphics {
 
