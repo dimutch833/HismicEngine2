@@ -157,6 +157,7 @@
     <ClInclude Include="include\GL\wglew.h" />
     <ClInclude Include="src\BUILD.h" />
     <ClInclude Include="src\graphics\window.h" />
+    <ClInclude Include="src\maths\mat4.h" />
     <ClInclude Include="src\maths\maths.h" />
     <ClInclude Include="src\maths\vec2.h" />
     <ClInclude Include="src\maths\vec3.h" />

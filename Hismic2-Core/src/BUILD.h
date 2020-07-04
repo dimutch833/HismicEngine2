@@ -12,3 +12,4 @@
 #define NAME_VERSION NAME " " VERSION
 
 
+//https://www.youtube.com/watch?v=5-minbbZW14&list=PLlrATfBNZ98fqE45g3jZA_hLGUrD4bo6_&index=9 17:00
