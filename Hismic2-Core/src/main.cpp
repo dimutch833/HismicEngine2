@@ -18,11 +18,11 @@ int main(int argc,char *argv[]) {
 	glGenVertexArrays(1,&vao);
 	glBindVertexArray(vao);
 
-	vec3 a(1.0f,2.0f,5.0f);
-	vec3 b(2,4,6);
+	vec4 a(1.0f,2.0f,5.0f,0.5);
+	vec4 b(0.2f, 0.3f, 0.8f, 1.0f);
 
 
-	vec3 c = a + b;
+	vec4 c = a + b;
 
 	
 	while (!window.closed()) {
@@ -30,7 +30,7 @@ int main(int argc,char *argv[]) {
 		window.clear();
 		
 		
-		std::cout << a  << std::endl;
+		std::cout << c  << std::endl;
 #if 1 	
 		glBegin(GL_TRIANGLES);
 		glVertex2f(-0.5f, -0.5f);
