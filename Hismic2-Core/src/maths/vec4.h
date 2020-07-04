@@ -16,10 +16,10 @@ namespace hismic {
 			vec4& multiply(const vec4& other);
 			vec4& divide(const vec4& other);
 
-			friend vec4& operator+(vec4& left,const vec4& right);
-			friend vec4& operator-(vec4& left, const vec4& right);
-			friend vec4& operator*(vec4& left, const vec4& right);
-			friend vec4& operator/(vec4& left, const vec4& right);
+			friend vec4& operator+(vec4 left,const vec4& right);
+			friend vec4& operator-(vec4 left, const vec4& right);
+			friend vec4& operator*(vec4 left, const vec4& right);
+			friend vec4& operator/(vec4 left, const vec4& right);
 
 			bool operator==(const vec4& other);
 			bool operator!=(const vec4& other);
