@@ -23,9 +23,8 @@ int main(int argc,char *argv[]) {
 	while (!window.closed()) {
 		
 		window.clear();
-		double x, y;
-		window.getMousePosition(x,y);
-		std::cout << x << "," << y << std::endl;
+		
+		std::cout << vector << std::endl;
 #if 1 	
 		glBegin(GL_TRIANGLES);
 		glVertex2f(-0.5f, -0.5f);
