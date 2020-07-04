@@ -1,7 +1,7 @@
 #include "utils/Logger.h"
 #include "BUILD.h"
 #include <graphics/window.h>
-#include <maths/vec2.h>
+#include <maths/maths.h>
 
 int main(int argc,char *argv[]) {
 	using namespace hismic;
