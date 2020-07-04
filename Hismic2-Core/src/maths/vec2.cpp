@@ -42,6 +42,10 @@ namespace hismic {
 		y /= other.y;
 		return *this;
 	}
+	bool vec2::operator==(const vec2& other)
+	{
+		return x == other.x && y == other.y;
+	}
 	vec2& vec2::operator+=(const vec2& other)
 	{
 		return add(other);

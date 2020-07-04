@@ -21,6 +21,8 @@ namespace hismic {
 			friend vec2& operator*(vec2& left, const vec2& right);
 			friend vec2& operator/(vec2& left, const vec2& right);
 
+			bool operator==(const vec2& other);
+
 			vec2& operator+=(const vec2& other);
 			vec2& operator-=(const vec2& other);
 			vec2& operator*=(const vec2& other);
