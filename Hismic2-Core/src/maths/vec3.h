@@ -4,32 +4,32 @@
 namespace hismic {
 	namespace maths {
 
-		struct vec2 {
+		struct vec3 {
 
-			float x, y;
+			float x,y,z;
 
-			vec2();
-			vec2(const float& x, const float& y);
+			vec3();
+			vec3(const float& x, const float& y, const float& z);
 
-			vec2& add(const vec2& other);
-			vec2& subtract(const vec2& other);
-			vec2& multiply(const vec2& other);
-			vec2& divide(const vec2& other);
+			vec3& add(const vec3& other);
+			vec3& subtract(const vec3& other);
+			vec3& multiply(const vec3& other);
+			vec3& divide(const vec3& other);
 
-			friend vec2& operator+(vec2& left,const vec2& right);
-			friend vec2& operator-(vec2& left, const vec2& right);
-			friend vec2& operator*(vec2& left, const vec2& right);
-			friend vec2& operator/(vec2& left, const vec2& right);
+			friend vec3& operator+(vec3& left,const vec3& right);
+			friend vec3& operator-(vec3& left, const vec3& right);
+			friend vec3& operator*(vec3& left, const vec3& right);
+			friend vec3& operator/(vec3& left, const vec3& right);
 
-			bool operator==(const vec2& other);
-			bool operator!=(const vec2& other);
+			bool operator==(const vec3& other);
+			bool operator!=(const vec3& other);
 
-			vec2& operator+=(const vec2& other);
-			vec2& operator-=(const vec2& other);
-			vec2& operator*=(const vec2& other);
-			vec2& operator/=(const vec2& other);
+			vec3& operator+=(const vec3& other);
+			vec3& operator-=(const vec3& other);
+			vec3& operator*=(const vec3& other);
+			vec3& operator/=(const vec3& other);
 
-			friend std::ostream& operator<<(std::ostream& stream,const vec2& vector);
+			friend std::ostream& operator<<(std::ostream& stream,const vec3& vector);
 		};
 
 

@@ -1,89 +1,95 @@
-#include "vec2.h"
-//Simple math vec2
+#include "vec3.h"
+//Simple math vec3
 
 namespace hismic {
 	namespace maths {
 	
-	vec2::vec2() {
+	vec3::vec3() {
 
 		x = 0.0f;
 		y = 0.0f;
+		z = 0.0f;
 	}
-	vec2::vec2(const float& x, const float& y) {
+	vec3::vec3(const float& x, const float& y, const float& x) {
 		this->x = x;
 		this->y = y;
-
+		this->z = z;
 	}
 
-	vec2& vec2::add(const vec2& other)
+	vec3& vec3::add(const vec3& other)
 	{
 		x += other.x;
 		y += other.y;
+		z += other.z;
+
 		return *this;
 	}
 
-	vec2& vec2::subtract(const vec2& other)
+	vec3& vec3::subtract(const vec3& other)
 	{
 		x -= other.x;
 		y -= other.y;
+		z -= other.z;
 		return *this;
 	}
 
-	vec2& vec2::multiply(const vec2& other)
+	vec3& vec3::multiply(const vec3& other)
 	{
 		x *= other.x;
 		y *= other.y;
+		z *= other.z;
 		return *this;
 	}
 
-	vec2& vec2::divide(const vec2& other)
+	vec3& vec3::divide(const vec3& other)
 	{
 		x /= other.x;
 		y /= other.y;
+		z /= other.z;
 		return *this;
 	}
-	bool vec2::operator==(const vec2& other)
+	bool vec3::operator==(const vec3& other)
 	{
-		return x == other.x && y == other.y;
+		return x == other.x && y == other.y && z == other.z;
 	}
-	bool vec2::operator!=(const vec2& other)
+	bool vec3::operator!=(const vec3& other)
 	{
 		return !(*this == other);
 	}
-	vec2& vec2::operator+=(const vec2& other)
+	vec3& vec3::operator+=(const vec3& other)
 	{
 		return add(other);
 	}
-	vec2& vec2::operator-=(const vec2& other)
+	vec3& vec3::operator-=(const vec3& other)
 	{
 		return subtract(other);
 	}
-	vec2& vec2::operator*=(const vec2& other)
+	vec3& vec3::operator*=(const vec3& other)
 	{
 		return multiply(other);
 	}
-	vec2& vec2::operator/=(const vec2& other)
+	vec3& vec3::operator/=(const vec3& other)
 	{
 		return divide(other);
 	}
-	vec2& operator+(vec2& left, const vec2& right)
+	vec3& operator+(vec3& left, const vec3& right)
 	{
 		return left.add(right);
 	}
-	vec2& operator-(vec2& left, const vec2& right)
+	vec3& operator-(vec3& left, const vec3& right)
 	{
 		return left.subtract(right);
 	}
-	vec2& operator*(vec2& left, const vec2& right)
+	vec3& operator*(vec3& left, const vec3& right)
 	{
 		return left.multiply(right);
 	}
-	vec2& operator/(vec2& left, const vec2& right)
+	vec3& operator/(vec3& left, const vec3& right)
 	{
 		return left.divide(right);
 	}
-	std::ostream& operator<<(std::ostream& stream, const vec2& vector) {
-		stream << "vec2: (" << vector.x << ", " << vector.y << ")";
+	std::ostream& operator<<(std::ostream& stream, const vec3& vector) {
+		stream << "vec3: (" << vector.x << ", " << vector.y << ", " << vector.z << ")";
 		return stream;
 	}
 	

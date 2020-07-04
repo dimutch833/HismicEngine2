@@ -143,6 +143,8 @@
   <ItemGroup>
     <ClCompile Include="src\graphics\window.cpp" />
     <ClCompile Include="src\maths\vec2.cpp" />
+    <ClCompile Include="src\maths\vec3.cpp" />
+    <ClCompile Include="src\maths\vec4.cpp" />
     <ClCompile Include="src\utils\Logger.cpp" />
     <ClCompile Include="src\main.cpp" />
   </ItemGroup>
@@ -156,6 +158,8 @@
     <ClInclude Include="src\BUILD.h" />
     <ClInclude Include="src\graphics\window.h" />
     <ClInclude Include="src\maths\vec2.h" />
+    <ClInclude Include="src\maths\vec3.h" />
+    <ClInclude Include="src\maths\vec4.h" />
     <ClInclude Include="src\utils\Logger.h" />
   </ItemGroup>
   <ItemGroup>
