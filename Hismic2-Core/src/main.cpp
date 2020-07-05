@@ -25,12 +25,11 @@ int main(int argc,char *argv[]) {
 	mat4 position = mat4::translation(vec3(2,3,4));
 	position *= mat4::identity();
 	
+
 	while (!window.closed()) {
 		
 		window.clear();
-		
-		
-		
+
 #if 1 	
 		glBegin(GL_TRIANGLES);
 		glVertex2f(-0.5f, -0.5f);
