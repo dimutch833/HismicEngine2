@@ -1,7 +1,9 @@
 #include "mat4.h"
 
+
 namespace hismic {
 	namespace maths {
+		float ToRadians(float degrees);
 		mat4::mat4()
 		{
 			for (int i = 0; i < 4 * 4; i++) {
@@ -33,6 +35,7 @@ namespace hismic {
 					elements[x + y * 4] = sum;
 				}
 			}
+			return *this;
 		}
 		mat4& mat4::operator*=(const mat4& other)
 		{

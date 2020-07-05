@@ -1,8 +1,7 @@
 #pragma once
 
-#define _USE_MATH_DEFINES
-#include "maths.h"
-#include <math.h>
+#include "vec3.h"
+#include "maths_func.h"
 
 namespace hismic {
 	namespace maths {

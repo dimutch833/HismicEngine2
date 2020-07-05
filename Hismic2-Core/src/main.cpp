@@ -22,15 +22,15 @@ int main(int argc,char *argv[]) {
 	vec4 b(0.2f, 0.3f, 0.8f, 1.0f);
 
 
-	vec4 c = a + b;
-
+	mat4 position = mat4::translation(vec3(2,3,4));
+	position
 	
 	while (!window.closed()) {
 		
 		window.clear();
 		
 		
-		std::cout << c  << std::endl;
+		
 #if 1 	
 		glBegin(GL_TRIANGLES);
 		glVertex2f(-0.5f, -0.5f);
