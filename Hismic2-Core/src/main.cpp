@@ -24,7 +24,8 @@ int main(int argc,char *argv[]) {
 
 	mat4 position = mat4::translation(vec3(2,3,4));
 	position *= mat4::identity();
-	
+	vec4 c = position.columns[3];
+	std::cout << c << std::endl;
 
 	while (!window.closed()) {
 		
