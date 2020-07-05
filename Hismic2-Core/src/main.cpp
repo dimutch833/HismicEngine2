@@ -23,7 +23,7 @@ int main(int argc,char *argv[]) {
 
 
 	mat4 position = mat4::translation(vec3(2,3,4));
-	position
+	position *= mat4::identity();
 	
 	while (!window.closed()) {
 		
