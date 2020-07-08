@@ -1,2 +1,3 @@
 # HismicEngine2
-My private Game Engine
+Curently 2D Game engine
+After i add 3d
