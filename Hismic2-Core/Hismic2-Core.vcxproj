@@ -164,6 +164,7 @@
     <ClInclude Include="src\maths\vec2.h" />
     <ClInclude Include="src\maths\vec3.h" />
     <ClInclude Include="src\maths\vec4.h" />
+    <ClInclude Include="src\utils\fileutils.h" />
     <ClInclude Include="src\utils\Logger.h" />
   </ItemGroup>
   <ItemGroup>
