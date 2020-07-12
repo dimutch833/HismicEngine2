@@ -2,15 +2,12 @@
 #include "BUILD.h"
 #include <graphics/window.h>
 #include <maths/maths.h>
-#include <utils/fileutils.h>
+
 
 int main(int argc,char *argv[]) {
 	using namespace hismic;
 	using namespace graphics;
 	using namespace maths;
-
-	std::string file = read_file("main.cpp");
-	std::cout << file << std::endl;
 
 	Utils::Logger logger;
 	logger.PrintLog(FULL_VERSION_NAME, 1);
