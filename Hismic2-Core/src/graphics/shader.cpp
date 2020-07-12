@@ -10,6 +10,7 @@ namespace hismic {
 		}
 		Shader::~Shader()
 		{
+			glDeleteProgram(m_ShaderID);
 		}
 		void Shader::enable() const
 		{
@@ -25,8 +26,11 @@ namespace hismic {
 			GLuint vertex = glCreateShader(GL_VERTEX_SHADER);
 			GLuint fragment = glCreateShader(GL_FRAGMENT_SHADER);
 
-			const char *vertSource = read_file(m_VertPath).c_str();
-			const char *fragSource = read_file(m_FragPath).c_str();
+			std::string vertSourceString = FileUtils::read_file(m_VertPath);
+			std::string fragSourceString = FileUtils::read_file(m_FragPath);
+
+			const char *vertSource = vertSourceString.c_str();
+			const char *fragSource = fragSourceString.c_str();
 
 			glShaderSource(vertex, 1, &vertSource, NULL);
 			glCompileShader(vertex);
@@ -45,7 +49,7 @@ namespace hismic {
 			glShaderSource(fragment, 1, &fragSource, NULL);
 			glCompileShader(fragment);
 
-			GLint result;
+			
 			glGetShaderiv(fragment, GL_COMPILE_STATUS, &result);
 			if (result == GL_FALSE) {
 				GLint length;

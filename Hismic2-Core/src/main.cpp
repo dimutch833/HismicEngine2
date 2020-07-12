@@ -18,7 +18,7 @@ int main(int argc,char *argv[]) {
 	GLuint vao;
 	glGenVertexArrays(1,&vao);
 	glBindVertexArray(vao);
-	Shader shader();
+	Shader shader("src/shaders/basic.hvsh", "src/shaders/basic.hfsh");
 
 	while (!window.closed()) {
 		

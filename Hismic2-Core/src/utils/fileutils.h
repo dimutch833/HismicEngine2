@@ -2,7 +2,9 @@
 #include <string>
 
 namespace hismic {
-	std::string read_file(const char* filepath) {
+	class FileUtils {
+	public:
+	static std::string read_file(const char* filepath) {
 		FILE* file = fopen(filepath,"rt");
 		fseek(file,0,SEEK_END);
 		unsigned long length = ftell(file);
@@ -16,4 +18,6 @@ namespace hismic {
 		delete[] data;
 		return result;
 	}
+
+	};
 }

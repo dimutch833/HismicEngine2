@@ -13,10 +13,10 @@ void Utils::Logger::PrintLog(const char* logString, int code) {
 		std::cout << "[FAIL]" << logString << std::endl;
 		break;
 	case 4:
-		std::cout << "[FAIL][COMPILE VERTEX SHADER]" << logString << std::endl;
+		std::cout << "[FAIL][COMPILE VERTEX SHADER]: " << logString << std::endl;
 		break;
 	case 5:
-		std::cout << "[FAIL][COMPILE FRAGMENT SHADER]" << logString << std::endl;
+		std::cout << "[FAIL][COMPILE FRAGMENT SHADER]: " << logString << std::endl;
 		break;
 
 	}
