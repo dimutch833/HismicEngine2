@@ -2,7 +2,7 @@
 #include "BUILD.h"
 #include <graphics/window.h>
 #include <maths/maths.h>
-
+#include <graphics/shader.h>
 
 int main(int argc,char *argv[]) {
 	using namespace hismic;
@@ -18,29 +18,12 @@ int main(int argc,char *argv[]) {
 	GLuint vao;
 	glGenVertexArrays(1,&vao);
 	glBindVertexArray(vao);
-
-	vec4 a(1.0f,2.0f,5.0f,0.5);
-	vec4 b(0.2f, 0.3f, 0.8f, 1.0f);
-
-
-	mat4 position = mat4::translation(vec3(2,3,4));
-	position *= mat4::identity();
-	vec4 c = position.columns[3];
-	std::cout << c << std::endl;
+	Shader shader();
 
 	while (!window.closed()) {
 		
 		window.clear();
-
-#if 1 	
-		glBegin(GL_TRIANGLES);
-		glVertex2f(-0.5f, -0.5f);
-		glVertex2f(0.0f, 0.5f);
-		glVertex2f(0.5f, -0.5f);
-		glEnd();
-#else 
 		glDrawArrays(GL_ARRAY_BUFFER, 0, 6);
-#endif
 		window.update();
 	}
 	

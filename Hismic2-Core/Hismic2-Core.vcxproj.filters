@@ -98,4 +98,8 @@
     <Library Include="lib\glfw3dll.lib" />
     <Library Include="lib\glew32.lib" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="src\shaders\basic.hfsh" />
+    <None Include="src\shaders\basic.hvsh" />
+  </ItemGroup>
 </Project>

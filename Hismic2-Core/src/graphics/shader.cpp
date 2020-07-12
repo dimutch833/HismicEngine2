@@ -13,9 +13,11 @@ namespace hismic {
 		}
 		void Shader::enable() const
 		{
+			glUseProgram(m_ShaderID);
 		}
 		void Shader::disable() const
 		{
+			glUseProgram(0);
 		}
 		GLuint Shader::load()
 		{
