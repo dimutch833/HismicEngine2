@@ -32,7 +32,7 @@ int main(int argc,char *argv[]) {
 	
 	Shader shader("src/shaders/basic.hvsh", "src/shaders/basic.hfsh");
 	shader.enable();
-	
+	shader.setUniformMat4("pr_matrix", ortho);
 
 
 	while (!window.closed()) {
