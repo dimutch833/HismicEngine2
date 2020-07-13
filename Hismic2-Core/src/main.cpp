@@ -15,7 +15,6 @@ int main(int argc,char *argv[]) {
 	Window window(NAME_VERSION,960,540);
 	glClearColor(0.2f, 0.3f, 0.8f, 1.0f);
 
-	GLuint vbo;
 
 	GLfloat vertices[] = {
           -0.5f,-0.5f, 0.0f,
@@ -25,6 +24,9 @@ int main(int argc,char *argv[]) {
 		   0.5f,-0.5f, 0.0f,
 		  -0.5f,-0.5f, 0.0f,
 	};
+	GLuint vao,vbo;
+	glGenVertexArrays(1, &vao);
+	glBindVertexArray(vao);
 	glGenBuffers(1,&vbo);
 	glBindBuffer(GL_ARRAY_BUFFER, vbo);
 	glBufferData(GL_ARRAY_BUFFER,sizeof(vertices),vertices,GL_STATIC_DRAW);
@@ -39,7 +41,7 @@ int main(int argc,char *argv[]) {
 	while (!window.closed()) {
 		
 		window.clear();
-		glDrawArrays(GL_ARRAY_BUFFER, 0, 6);
+		glDrawArrays(GL_TRIANGLES, 0, 6);
 		window.update();
 	}
 	
