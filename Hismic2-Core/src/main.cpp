@@ -37,7 +37,7 @@ int main(int argc,char *argv[]) {
 	shader.enable();
 	shader.setUniformMat4("pr_matrix", ortho);
 	shader.setUniformMat4("ml_matrix", mat4::translation(vec3(4,3,0)));
-	shader.setUniform2f("light_pos",vec2(8.0f,4.5f));
+	shader.setUniform2f("light_pos",vec2(4.0f,1.5f));
 	shader.setUniform4f("colour", vec4(0.2f, 0.3f, 0.8f, 1.0f));
 
 	while (!window.closed()) {
