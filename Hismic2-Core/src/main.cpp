@@ -17,9 +17,12 @@ int main(int argc,char *argv[]) {
 
 
 	GLfloat vertices[] = {
-          4,3,0,
-		  12,3,0,
-		  4,6,0
+          0,0,0,
+		  8,0,0,
+		  0,3,0,
+		  0,3,0,
+		  8,3,0,
+		  8,0,0
 	};
 	GLuint vbo;
 	glGenBuffers(1,&vbo);
@@ -33,6 +36,7 @@ int main(int argc,char *argv[]) {
 	Shader shader("src/shaders/basic.hvsh", "src/shaders/basic.hfsh");
 	shader.enable();
 	shader.setUniformMat4("pr_matrix", ortho);
+	shader.setUniformMat4("ml_matrix", mat4::translation(vec3(4,3,0)));
 
 
 	while (!window.closed()) {
