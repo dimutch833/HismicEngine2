@@ -12,6 +12,27 @@ namespace hismic {
 		{
 			glDeleteProgram(m_ShaderID);
 		}
+		void Shader::setUniform1i(const GLchar* name, int value)
+		{
+			glUniform1i(getUniformLocation(name), value);
+		}
+		void Shader::setUniform1f(const GLchar* name, float value)
+		{
+			glUniform1f(getUniformLocation(name), value);
+		}
+		void Shader::setUniform2f(const GLchar* name, const maths::vec2& vector)
+		{
+			glUniform2f(getUniformLocation(name), vector.x,vector.y);
+		}
+		void Shader::setUniform3f(const GLchar* name, const maths::vec3& vector)
+		{
+		}
+		void Shader::setUniform3f(const GLchar* name, const maths::vec4& vector)
+		{
+		}
+		void Shader::setUniformMat4(const GLchar* name, const maths::mat4& matrix)
+		{
+		}
 		void Shader::enable() const
 		{
 			glUseProgram(m_ShaderID);
@@ -19,6 +40,10 @@ namespace hismic {
 		void Shader::disable() const
 		{
 			glUseProgram(0);
+		}
+		GLint Shader::getUniformLocation(const GLchar* name)
+		{
+			return glGetUniformLocation(m_ShaderID,name);
 		}
 		GLuint Shader::load()
 		{

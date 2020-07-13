@@ -17,12 +17,9 @@ int main(int argc,char *argv[]) {
 
 
 	GLfloat vertices[] = {
-          -0.5f,-0.5f, 0.0f,
-          -0.5f, 0.5f, 0.0f,
-		   0.5f, 0.5f, 0.0f,
-           0.5f, 0.5f, 0.0f,
-		   0.5f,-0.5f, 0.0f,
-		  -0.5f,-0.5f, 0.0f,
+          4,3,0,
+		  12,3,0,
+		  4,6,0
 	};
 	GLuint vbo;
 	glGenBuffers(1,&vbo);
@@ -35,7 +32,7 @@ int main(int argc,char *argv[]) {
 	
 	Shader shader("src/shaders/basic.hvsh", "src/shaders/basic.hfsh");
 	shader.enable();
-	glUniformMatrix4fv(glGetUniformLocation(shader.m_ShaderID,"pr_matrix"),1,GL_FALSE,ortho.elements);
+	
 
 
 	while (!window.closed()) {
