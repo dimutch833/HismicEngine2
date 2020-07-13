@@ -13,7 +13,7 @@ int main(int argc,char *argv[]) {
 	logger.PrintLog(FULL_VERSION_NAME, 1);
 
 	Window window(NAME_VERSION,960,540);
-	glClearColor(0.2f, 0.3f, 0.8f, 1.0f);
+	glClearColor(1.0f, 1.0f, 1.0f, 1.0f);
 
 
 	GLfloat vertices[] = {
@@ -38,6 +38,7 @@ int main(int argc,char *argv[]) {
 	shader.setUniformMat4("pr_matrix", ortho);
 	shader.setUniformMat4("ml_matrix", mat4::translation(vec3(4,3,0)));
 
+	shader.setUniform4f("colour", vec4(0.2f, 0.3f, 0.8f, 1.0f));
 
 	while (!window.closed()) {
 		
