@@ -26,12 +26,15 @@ namespace hismic {
 		}
 		void Shader::setUniform3f(const GLchar* name, const maths::vec3& vector)
 		{
+			glUniform3f(getUniformLocation(name), vector.x, vector.y,vector.z);
 		}
-		void Shader::setUniform3f(const GLchar* name, const maths::vec4& vector)
+		void Shader::setUniform4f(const GLchar* name, const maths::vec4& vector)
 		{
+			glUniform4f(getUniformLocation(name), vector.x, vector.y, vector.z,vector.w);
 		}
 		void Shader::setUniformMat4(const GLchar* name, const maths::mat4& matrix)
 		{
+			glUniformMatrix4fv(getUniformLocation(name), 1, GL_FALSE, matrix.elements);
 		}
 		void Shader::enable() const
 		{
