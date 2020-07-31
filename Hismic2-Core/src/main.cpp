@@ -33,6 +33,26 @@ int main(int argc,char *argv[]) {
 	glBufferData(GL_ARRAY_BUFFER,sizeof(vertices),vertices,GL_STATIC_DRAW);
 	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 0, 0);
 	glEnableVertexAttribArray(0);
+#else
+	GLfloat vertices[] = {
+		  0,0,0,
+		  0,3,0,
+		  8,3,0,
+		  8,0,0
+	};
+	GLushort indices[] = {
+		0,1,2,
+		2,3,0
+	};
+
+
+	VertexArray vao;
+	Buffer* vbo = new Buffer(vertices,4*3,3);
+	IndexBuffer ibo(indices, 6);
+
+	vao.addBuffers(vbo, 0);
+
+
 #endif
 	mat4 ortho = mat4::orthographic(0.0f,16.0f,0.0f,9.0f,-1.0f,1.0f);
 	
@@ -53,7 +73,14 @@ int main(int argc,char *argv[]) {
 		glDrawArrays(GL_TRIANGLES, 0, 6);
 
 #else 
-
+		vao.bind();
+		ibo.bind();
+		shader.setUniformMat4("ml_matrix", mat4::translation(vec3(4, 3, 0)));
+		glDrawElements(GL_TRIANGLES, ibo.getCount(), GL_UNSIGNED_SHORT, 0);
+		shader.setUniformMat4("ml_matrix", mat4::translation(vec3(0, 0, 0)));
+		glDrawElements(GL_TRIANGLES, ibo.getCount(), GL_UNSIGNED_SHORT, 0);
+		ibo.bind();
+		vao.unbind();
 #endif
 		window.update();
 	}
