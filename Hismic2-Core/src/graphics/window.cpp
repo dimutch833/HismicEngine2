@@ -82,6 +82,10 @@ namespace hismic {
 			glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 		}
 		void Window::update() {
+			GLenum error = glGetError();
+			if (error != GL_NO_ERROR) {
+				std::cout << "[FAIL] OpenGL Error:" << error << std::endl;
+			}
 			glfwPollEvents();
 			glfwSwapBuffers(m_Window);
 		}
