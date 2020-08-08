@@ -3,6 +3,7 @@
 #include <graphics/window.h>
 #include <maths/maths.h>
 #include <graphics/shader.h>
+
 #include <graphics/buffers/buffer.h>
 #include <graphics/buffers/indexbuffer.h>
 #include <graphics/buffers/vertexarray.h>
@@ -45,15 +46,15 @@ int main(int argc,char *argv[]) {
 		2,3,0
 	};
 	GLfloat colorsA[] = {
-        1,0,1,1,
-		1,0,1,1,
-		1,0,1,1,
+        1,0,0,1,
+		0,1,0,1,
+		0,0,1,1,
 		1,0,1,1
 	};
 	GLfloat colorsB[] = {
+		0.2f,0.8f,0.8f,1,
 		0.2f,0.3f,0.8f,1,
-		0.2f,0.3f,0.8f,1,
-		0.2f,0.3f,0.8f,1,
+		0.8f,0.3f,0.8f,1,
 		0.2f,0.3f,0.8f,1,
 	};
 
@@ -93,14 +94,14 @@ int main(int argc,char *argv[]) {
 		ibo.bind();
 		shader.setUniformMat4("ml_matrix", mat4::translation(vec3(4, 3, 0)));
 		glDrawElements(GL_TRIANGLES, ibo.getCount(), GL_UNSIGNED_SHORT, 0);
-		ibo.bind();
+		ibo.unbind();
 		sprite1.unbind();
 
 		sprite2.bind();
 		ibo.bind();
 		shader.setUniformMat4("ml_matrix", mat4::translation(vec3(0, 0, 0)));
 		glDrawElements(GL_TRIANGLES, ibo.getCount(), GL_UNSIGNED_SHORT, 0);
-		ibo.bind();
+		ibo.unbind();
 		sprite2.unbind();
 		
 #endif
