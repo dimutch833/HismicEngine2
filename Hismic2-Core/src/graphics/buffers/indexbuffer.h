@@ -13,7 +13,7 @@ namespace hismic {
 
 			void bind() const;
 			void unbind() const;
-			inline GLuint getCount() { return m_Count; }
+			inline GLuint getCount() const { return m_Count; }
 		};
 	}
 }
