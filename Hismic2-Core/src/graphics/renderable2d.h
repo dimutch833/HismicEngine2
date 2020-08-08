@@ -4,6 +4,7 @@
 #include "buffers/indexbuffer.h"
 #include "buffers/vertexarray.h"
 #include <maths/maths.h>
+#include "shader.h"
 
 namespace hismic {
 	namespace graphics {
@@ -15,16 +16,17 @@ namespace hismic {
 
 			VertexArray* m_VertexArray;
 			IndexBuffer* m_IndexBuffer;
-		protected:
-			Renderable2D(maths::vec3 position, maths::vec2 size, maths::vec4 color) 
-				: m_Position(position),m_Size(size),m_Color(color)
+			Shader& m_Shader;
+		public:
+			Renderable2D(maths::vec3 position, maths::vec2 size, maths::vec4 color,Shader& shader) 
+				: m_Position(position),m_Size(size),m_Color(color),m_Shader(shader)
 			{
 				m_VertexArray = new VertexArray();
 				GLfloat vertices[] = {
 					0,0,0,
-					0,position.y,0,
-					position.x,position.y,0,
-					position.x,0,0
+					0,size.y,0,
+					size.x,size.y,0,
+					size.x,0,0
 
 				};
 				GLfloat colors[] = {
@@ -44,6 +46,12 @@ namespace hismic {
 				delete m_VertexArray;
 				delete m_IndexBuffer;
 			}
+		
+			inline const VertexArray* getVAO() const { return m_VertexArray; }
+			inline const IndexBuffer* getIBO() const { return m_IndexBuffer; }
+
+			inline Shader& getShader() const { return m_Shader; }
+
 			inline const maths::vec3& getPosition() const { return m_Position; }
 			inline const maths::vec2& getSize() const { return m_Size; }
 			inline const maths::vec4& getColor() const { return m_Color; }
