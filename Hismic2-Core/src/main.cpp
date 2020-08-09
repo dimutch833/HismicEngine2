@@ -31,8 +31,8 @@ int main(int argc,char *argv[]) {
 	Renderable2D sprite2(maths::vec3(7, 1, 0), maths::vec2(2, 3), maths::vec4(0.2f, 0, 1, 1), shader);
 	Simple2DRenderer renderer;
 
-	shader.setUniform2f("light_pos",vec2(4.0f,1.5f));
-	shader.setUniform4f("colour", vec4(0.2f, 0.3f, 0.8f, 1.0f));
+	//shader.setUniform2f("light_pos",vec2(4.0f,1.5f));
+	//shader.setUniform4f("colour", vec4(0.2f, 0.3f, 0.8f, 1.0f));
 
 	while (!window.closed()) {
 		
