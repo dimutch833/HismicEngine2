@@ -1,0 +1,5 @@
+namespace hismic {
+	namespace graphics {
+
+	}
+}
