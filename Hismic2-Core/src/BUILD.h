@@ -12,4 +12,3 @@
 #define NAME_VERSION NAME " " VERSION
 
 
-//ep9 50:12
