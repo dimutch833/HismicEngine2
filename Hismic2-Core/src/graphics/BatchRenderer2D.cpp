@@ -18,9 +18,18 @@ namespace hismic {
 		}
 		void BatchRenderer2D::init()
 		{
+			glGenVertexArrays(1,&m_VAO);
 			glGenBuffers(1,&m_VBO);
+
+
+			glBindVertexArray(m_VAO);
 			glBindBuffer(GL_ARRAY_BUFFER,m_VBO);
 			glBufferData(GL_ARRAY_BUFFER,RENDERER_BUFFER_SIZE,NULL,GL_DYNAMIC_DRAW);
+			glEnableVertexAttribArray(SHADER_VERTEX_INDEX);
+			glEnableVertexAttribArray(SHADER_COLOR_INDEX);
+			glVertexAttribPointer(SHADER_VERTEX_INDEX,3,GL_FLOAT,GL_FALSE,RENDERER_VERTEX_SIZE,(const GLvoid*)0);
+			glVertexAttribPointer(SHADER_COLOR_INDEX,4, GL_FLOAT, GL_FALSE, RENDERER_VERTEX_SIZE, (const GLvoid*)(3 * GL_FLOAT));
+			glBindBuffer(GL_ARRAY_BUFFER, 0);
 		}
 	}
 }

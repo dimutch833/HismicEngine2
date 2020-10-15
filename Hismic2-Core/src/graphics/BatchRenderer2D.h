@@ -1,7 +1,6 @@
 #pragma once
 #include "renderer2d.h"
 
-
 namespace hismic {
 	namespace graphics {
 #define RENDERER_MAX_SPRITES    10000
@@ -10,12 +9,16 @@ namespace hismic {
 #define RENDERER_BUFFER_SIZE    RENDERER_SPRITE_SIZE * RENDERER_MAX_SPRITES
 #define RENDERER_INDICES_SIZE 	RENDERER_MAX_SPRITES * 6
 
+#define SHADER_VERTEX_INDEX 0
+#define SHADER_COLOR_INDEX 1
+
+
 		class BatchRenderer2D : public Renderer2D{
 		private:
-			VertexArray m_VAO;
+			GLuint m_VAO;
+			GLuint m_VBO;
 			IndexBuffer* m_IBO; // 60 000
 			GLsizei m_IndexCount;
-			GLuint m_VBO;
 			
 		public:
 			BatchRenderer2D();
