@@ -24,5 +24,10 @@ namespace hismic {
 			GLushort indices[] = { 0,1,2,2,3,0 };
 			m_IndexBuffer = new IndexBuffer(indices, 6);
 		}
+		StaticSprite::~StaticSprite()
+		{
+			delete m_VertexArray;
+			delete m_IndexBuffer;
+		}
 	}
 }

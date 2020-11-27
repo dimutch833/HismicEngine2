@@ -19,12 +19,15 @@ namespace hismic {
 			GLuint m_VBO;
 			IndexBuffer* m_IBO; // 60 000
 			GLsizei m_IndexCount;
+			VertexData* m_Buffer;
 			
 		public:
 			BatchRenderer2D();
 			~BatchRenderer2D();
+			void begin();
 			void submit(const Renderable2D* renderable) override;
-		    void flush() override;
+			void end();
+			void flush() override;
 		private:
 			void init();
 		};
