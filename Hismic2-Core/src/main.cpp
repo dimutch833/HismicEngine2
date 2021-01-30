@@ -15,6 +15,8 @@
 #include <graphics/static_sprite.h>
 #include <graphics/sprite.h>
 
+#include <time.h>
+
 #define BATCH_RENDERER 1
 
 int main(int argc,char *argv[]) {
@@ -31,11 +33,34 @@ int main(int argc,char *argv[]) {
 	Shader shader("src/shaders/basic.hvsh", "src/shaders/basic.hfsh");
 	shader.enable();
 	shader.setUniformMat4("pr_matrix", ortho);
-	shader.setUniformMat4("ml_matrix", mat4::translation(vec3(4,3,0)));
+
+
+
+	std::vector<Renderable2D*> sprites;
+
+	srand(time(NULL));
+
+	for (float y = 0; y < 9.0f; y+= 0.1) {
+		for (float x = 0; x < 16.0f; x+= 0.1) {
+			sprites.push_back(new 
 #if BATCH_RENDERER
-	Sprite sprite(5 ,5 + 3,4,4, maths::vec4(1, 0, 1, 1));
-	Sprite sprite2(7,1 + 3,2,3, maths::vec4(0.2f, 0, 1, 1));
+				Sprite
+#else
+				StaticSprite
+#endif
+				(x,y,0.9f,0.9f,maths::vec4(rand() % 1000 / 1000.0f,0,1,1)
+#if !BATCH_RENDERER
+					,shader
+#endif					
+					));
+		}
+	}
+
+#if BATCH_RENDERER
+	Sprite sprite(5,5,4,4, maths::vec4(1, 0, 1, 1));
+	Sprite sprite2(7,1,2,3, maths::vec4(0.2f, 0, 1, 1));
 	BatchRenderer2D  renderer;
+
 #else
 	StaticSprite sprite(5, 5, 4, 4, maths::vec4(1, 0, 1, 1),shader);
 	StaticSprite sprite2(7, 1, 2, 3, maths::vec4(0.2f, 0, 1, 1),shader);
@@ -55,8 +80,9 @@ int main(int argc,char *argv[]) {
 #if BATCH_RENDERER
 		renderer.begin();
 #endif
-		renderer.submit(&sprite);
-		renderer.submit(&sprite2);
+		for (int i = 0; i < sprites.size(); i++) {
+			renderer.submit(sprites[i]);
+		}
 #if BATCH_RENDERER
 		renderer.end();
 #endif

@@ -50,7 +50,7 @@ namespace hismic {
 			glBindVertexArray(m_VAO);
 			m_IBO->bind();
 
-			glDrawElements(GL_TRIANGLES,m_IndexCount,GL_UNSIGNED_SHORT,NULL);
+			glDrawElements(GL_TRIANGLES,m_IndexCount,GL_UNSIGNED_INT,NULL);
 
 			m_IBO->unbind();
 			glBindVertexArray(0);
@@ -72,7 +72,7 @@ namespace hismic {
 			glVertexAttribPointer(SHADER_COLOR_INDEX,4, GL_FLOAT, GL_FALSE, RENDERER_VERTEX_SIZE, (const GLvoid*)(3 * sizeof(GLfloat)));
 			glBindBuffer(GL_ARRAY_BUFFER, 0);
 
-			GLushort indices[RENDERER_INDICES_SIZE];
+			GLuint* indices = new GLuint [RENDERER_INDICES_SIZE];
 
 			int offset = 0;
         	for (int i = 0; i < RENDERER_INDICES_SIZE; i += 6) {
