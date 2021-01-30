@@ -18,15 +18,44 @@ namespace hismic {
 		}
 		void BatchRenderer2D::submit(const Renderable2D* renderable)
 		{
-			m_Buffer->vertex = renderable->getPosition();
-			m_Buffer->color = renderable->getColor();
+			const maths::vec2& size = renderable->getSize();
+			const maths::vec3& position = renderable->getPosition();
+			const maths::vec4& color = renderable->getColor();
+
+			m_Buffer->vertex = position;
+			m_Buffer->color = color;
 			m_Buffer++;
+
+			m_Buffer->vertex = maths::vec3(position.x,position.y + size.y,position.z);
+			m_Buffer->color = color;
+			m_Buffer++;
+
+			m_Buffer->vertex = maths::vec3(position.x + size.x, position.y + size.y, position.z);
+			m_Buffer->color = color;
+			m_Buffer++;
+
+			m_Buffer->vertex = maths::vec3(position.x + size.x, position.y, position.z);
+			m_Buffer->color = color;
+			m_Buffer++;
+
+			m_IndexCount += 6;
 		}
 		void BatchRenderer2D::end()
 		{
+			glUnmapBuffer(GL_ARRAY_BUFFER);
+			glBindBuffer(GL_ARRAY_BUFFER,0);
 		}
 		void BatchRenderer2D::flush()
 		{
+			glBindVertexArray(m_VAO);
+			m_IBO->bind();
+
+			glDrawElements(GL_TRIANGLES,m_IndexCount,GL_UNSIGNED_SHORT,NULL);
+
+			m_IBO->unbind();
+			glBindVertexArray(0);
+
+			m_IndexCount = 0;
 		}
 		void BatchRenderer2D::init()
 		{

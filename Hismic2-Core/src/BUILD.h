@@ -11,5 +11,3 @@
 #define FULL_VERSION_NAME NAME "[" VERSION "]" "[" CODENAME "]" "[" BUILD_DATE "]" "-" DEVELOPER 
 #define NAME_VERSION NAME " " VERSION
 
-
-//ep9 1:16:06

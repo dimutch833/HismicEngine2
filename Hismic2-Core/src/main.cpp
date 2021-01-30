@@ -9,9 +9,14 @@
 #include <graphics/buffers/vertexarray.h>
 
 #include <graphics/simple2drenderer.h>
+#include <graphics/BatchRenderer2D.h>
 #include <graphics/renderer2d.h>
 
 #include <graphics/static_sprite.h>
+#include <graphics/sprite.h>
+
+#define BATCH_RENDERER 1
+
 int main(int argc,char *argv[]) {
 	using namespace hismic;
 	using namespace graphics;
@@ -27,13 +32,18 @@ int main(int argc,char *argv[]) {
 	shader.enable();
 	shader.setUniformMat4("pr_matrix", ortho);
 	shader.setUniformMat4("ml_matrix", mat4::translation(vec3(4,3,0)));
+#if BATCH_RENDERER
+	Sprite sprite(5 ,5 + 3,4,4, maths::vec4(1, 0, 1, 1));
+	Sprite sprite2(7,1 + 3,2,3, maths::vec4(0.2f, 0, 1, 1));
+	BatchRenderer2D  renderer;
+#else
+	StaticSprite sprite(5, 5, 4, 4, maths::vec4(1, 0, 1, 1),shader);
+	StaticSprite sprite2(7, 1, 2, 3, maths::vec4(0.2f, 0, 1, 1),shader);
+	Simple2DRenderer  renderer;
+#endif
 
-	StaticSprite sprite(5,5,4,4, maths::vec4(1, 0, 1, 1), shader);
-	StaticSprite sprite2(7,1,2,3, maths::vec4(0.2f, 0, 1, 1), shader);
-	Simple2DRenderer renderer;
-
-	//shader.setUniform2f("light_pos",vec2(4.0f,1.5f));
-	//shader.setUniform4f("colour", vec4(0.2f, 0.3f, 0.8f, 1.0f));
+	shader.setUniform2f("light_pos",vec2(4.0f,1.5f));
+	shader.setUniform4f("colour", vec4(0.2f, 0.3f, 0.8f, 1.0f));
 
 	while (!window.closed()) {
 		
@@ -42,8 +52,14 @@ int main(int argc,char *argv[]) {
 		window.getMousePosition(x,y);
 		
 		shader.setUniform2f("light_pos", vec2((float)(x * 16.0f / 960.0f), (float)(9.0f - y * 9.0f / 540.0f)));
+#if BATCH_RENDERER
+		renderer.begin();
+#endif
 		renderer.submit(&sprite);
 		renderer.submit(&sprite2);
+#if BATCH_RENDERER
+		renderer.end();
+#endif
 		renderer.flush();
 
 		window.update();
