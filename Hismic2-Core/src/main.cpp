@@ -42,8 +42,8 @@ int main(int argc,char *argv[]) {
 	srand(time(NULL));
 	
 
-	for (float y = 0; y < 9.0f; y+= 0.1) {
-		for (float x = 0; x < 16.0f; x+= 0.1) {
+	for (float y = 0; y < 9.0f; y+= 0.05) {
+		for (float x = 0; x < 16.0f; x+= 0.05) {
 			sprites.push_back(new 
 #if BATCH_RENDERER
 				Sprite

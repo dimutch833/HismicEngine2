@@ -1,4 +1,6 @@
 #pragma once
+
+#include <cstddef>
 #include "renderer2d.h"
 
 namespace hismic {
