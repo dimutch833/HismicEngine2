@@ -15,6 +15,7 @@
 #include <graphics/static_sprite.h>
 #include <graphics/sprite.h>
 
+#include <utils/timer.h>
 #include <time.h>
 
 #define BATCH_RENDERER 1
@@ -39,6 +40,7 @@ int main(int argc,char *argv[]) {
 	std::vector<Renderable2D*> sprites;
 
 	srand(time(NULL));
+	
 
 	for (float y = 0; y < 9.0f; y+= 0.1) {
 		for (float x = 0; x < 16.0f; x+= 0.1) {
@@ -70,8 +72,11 @@ int main(int argc,char *argv[]) {
 	shader.setUniform2f("light_pos",vec2(4.0f,1.5f));
 	shader.setUniform4f("colour", vec4(0.2f, 0.3f, 0.8f, 1.0f));
 
+	Timer time;
+	float timer = 0;
+	unsigned int frames = 0;
+
 	while (!window.closed()) {
-		
 		window.clear();
 		double x, y;
 		window.getMousePosition(x,y);
@@ -89,6 +94,14 @@ int main(int argc,char *argv[]) {
 		renderer.flush();
 
 		window.update();
+		frames++;
+		if (time.elapsed() - timer > 1.0f)
+		{
+			timer += 1.0f;
+			logger.PrintLog(std::to_string(frames).c_str(),1);
+			frames = 0;
+		}
+		
 	}
 	
 
